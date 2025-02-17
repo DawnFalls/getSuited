@@ -1,1 +1,3 @@
-const a = 3;
+const a = 4;
+
+const b = 3;
