@@ -72,27 +72,6 @@ const SignIn: React.FC<SignInProps> = ({ onSignIn }) => {
           </button>
         </form>
 
-        {/* Social Login Buttons */}
-        <div className="social-buttons">
-          <button className="social-btn">
-            <FaFacebookF />
-          </button>
-          <button className="social-btn">
-            <FaApple />
-          </button>
-          <button className="social-btn">
-            <FaGoogle />
-          </button>
-          <button className="social-btn">
-            <FaTwitter />
-          </button>
-        </div>
-
-        {/* SSO Login Button */}
-        <button className="sso-btn">
-          <FaLock className="lock-icon" />
-          Log in with SSO
-        </button>
       </div>
     </div>
   );
