@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SignIn from "./pages/SignInPage/SignIn";
 import SignUp from "./pages/SignUpPage/SignUp";
+import Questionnaire from "./pages/Questionnaire/Questionnaire";
 
 // Components
 import Navbar from "./components/Navbar/Navbar";
@@ -55,11 +56,10 @@ const App: React.FC = () => {
 
   return (
     <Routes>
-      {/** 1) Landing Page at root "/" */}
+      {/* Landing Page at root "/" */}
       <Route path="/" element={<LandingPage />} />
 
-      {/** 2) Sign In Page => "/signin"
-           If authenticated, redirect to Dashboard */}
+      {/* Sign In Page => "/signin" */}
       <Route
         path="/signin"
         element={
@@ -71,8 +71,7 @@ const App: React.FC = () => {
         }
       />
 
-      {/** 3) Sign Up Page => "/register"
-           Triggered by "Register Now" link in Navbar */}
+      {/* Sign Up Page => "/register" */}
       <Route
         path="/register"
         element={
@@ -84,7 +83,7 @@ const App: React.FC = () => {
         }
       />
 
-      {/** 4) Dashboard => only visible if authenticated */}
+      {/* Dashboard => only visible if authenticated */}
       <Route
         path="/dashboard"
         element={
@@ -98,7 +97,7 @@ const App: React.FC = () => {
 
                 <SearchBar onSearch={handleSearch} />
 
-                {/** Conditionally show an ErrorBox */}
+                {/* Conditionally show an ErrorBox */}
                 {hasError && (
                   <ErrorBox
                     message="Something went wrong. Please try again."
@@ -106,7 +105,7 @@ const App: React.FC = () => {
                   />
                 )}
 
-                {/** Example Data */}
+                {/* Example Data */}
                 <DataBox
                   header="Dashboard Summary"
                   data={data}
@@ -128,7 +127,19 @@ const App: React.FC = () => {
         }
       />
 
-      {/** 5) Catch-all => redirect unknown paths to "/" */}
+      {/* Questionnaire Page (Only accessible if authenticated) */}
+      <Route
+        path="/questionnaire"
+        element={
+          isAuthenticated ? (
+            <Questionnaire />
+          ) : (
+            <Navigate to="/signin" replace />
+          )
+        }
+      />
+
+      {/* Catch-all => redirect unknown paths to "/" */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

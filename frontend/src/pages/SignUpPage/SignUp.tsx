@@ -113,27 +113,6 @@ const SignUp: React.FC<SignUpProps> = ({ onSignUp }) => {
           </button>
         </form>
 
-        {/* Social Signup Buttons */}
-        <div className="social-buttons">
-          <button className="social-btn">
-            <FaFacebookF />
-          </button>
-          <button className="social-btn">
-            <FaApple />
-          </button>
-          <button className="social-btn">
-            <FaGoogle />
-          </button>
-          <button className="social-btn">
-            <FaTwitter />
-          </button>
-        </div>
-
-        {/* SSO Signup */}
-        <button className="sso-btn">
-          <FaLock className="lock-icon" />
-          Sign up with SSO
-        </button>
       </div>
     </div>
   );
